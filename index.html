@@ -1,54 +1,97 @@
 <!DOCTYPE html>
-<html lang="ur" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Registration Form</title>
+    <title>Join Our Course - Registration</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gradient-to-br from-green-50 to-gray-100 flex items-center justify-center min-h-screen p-4">
+    <style>
+        /* Animated Gradient Background */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animated-bg {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientAnimation 12s ease infinite;
+        }
 
-    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-lg border border-gray-100">
+        /* Glowing Border Animation */
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(35, 213, 171, 0.4), inset 0 0 15px rgba(35, 166, 213, 0.2); }
+            50% { box-shadow: 0 0 40px rgba(231, 60, 126, 0.7), inset 0 0 25px rgba(238, 119, 82, 0.4); }
+        }
+        .glow-card {
+            animation: glowPulse 4s infinite alternate;
+        }
+
+        /* Input Focus Glow */
+        .input-glow:focus {
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+            border-color: #22c55e;
+        }
+    </style>
+</head>
+<body class="animated-bg min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-white/95 backdrop-blur-xl p-8 md:p-10 rounded-3xl glow-card w-full max-w-lg border border-white/40 transition-all duration-300">
+        
+        <!-- Header Section -->
         <div class="text-center mb-8">
-            <h2 class="text-3xl font-extrabold text-gray-800">Join Our Course</h2>
-            <p class="text-sm text-gray-500 mt-2">Apni details fill karein aur direct WhatsApp par rabta karein</p>
+            <span class="inline-block bg-gradient-to-r from-green-500 to-emerald-600 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3 shadow-md">
+                Enrollment Open 2026
+            </span>
+            <h2 class="text-3xl md:text-4xl font-black text-gray-800 tracking-tight">Join Our Course</h2>
+            <p class="text-sm text-gray-500 mt-2">Fill out the details below to instantly connect with us via WhatsApp.</p>
         </div>
         
-        <form id="whatsappForm" class="space-y-4">
+        <!-- Form -->
+        <form id="whatsappForm" class="space-y-5">
             <!-- Full Name -->
             <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Full Name</label>
-                <input type="text" id="fullName" required placeholder="Apna pura naam likhein" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                <label class="block text-sm font-bold text-gray-700 mb-1.5">Full Name</label>
+                <input type="text" id="fullName" required placeholder="e.g. John Doe" 
+                    class="input-glow w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none text-gray-800 font-medium transition duration-200">
             </div>
 
             <!-- Email -->
             <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Email</label>
-                <input type="email" id="email" required placeholder="example@email.com" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                <label class="block text-sm font-bold text-gray-700 mb-1.5">Email Address</label>
+                <input type="email" id="email" required placeholder="name@example.com" 
+                    class="input-glow w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none text-gray-800 font-medium transition duration-200">
             </div>
 
             <!-- WhatsApp No -->
             <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">WhatsApp No</label>
-                <input type="tel" id="whatsappNo" required placeholder="03XXXXXXXXX" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                <label class="block text-sm font-bold text-gray-700 mb-1.5">WhatsApp Number</label>
+                <input type="tel" id="whatsappNo" required placeholder="03XXXXXXXXX" 
+                    class="input-glow w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none text-gray-800 font-medium transition duration-200">
             </div>
 
             <!-- Education -->
             <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Education</label>
-                <input type="text" id="education" required placeholder="Misal ke taur par: Matric, Intermediate, Graduation" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                <label class="block text-sm font-bold text-gray-700 mb-1.5">Education</label>
+                <input type="text" id="education" required placeholder="e.g. Intermediate, BSCS, Matric" 
+                    class="input-glow w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none text-gray-800 font-medium transition duration-200">
             </div>
 
             <!-- City -->
             <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">City</label>
-                <input type="text" id="city" required placeholder="Apne shehar ka naam" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                <label class="block text-sm font-bold text-gray-700 mb-1.5">City</label>
+                <input type="text" id="city" required placeholder="e.g. Karachi, Lahore" 
+                    class="input-glow w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none text-gray-800 font-medium transition duration-200">
             </div>
 
-            <!-- Submit Button -->
-            <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-3.5 rounded-xl font-bold shadow-lg shadow-green-600/30 transition duration-200 mt-2">
-                Send to WhatsApp
+            <!-- Submit Button with Gradient & Hover Effect -->
+            <button type="submit" 
+                class="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-green-500/40 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center justify-center space-x-2 text-lg">
+                <span>Send to WhatsApp</span>
+                <svg class="w-5 h-5 ml-2 fill-current" viewBox="0 0 24 24">
+                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2zM12.04 20.1c-1.46 0-2.89-.39-4.13-1.13l-.3-.18-3.12.82.83-3.04-.2-.31c-.82-1.31-1.25-2.83-1.25-4.38 0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.41 1.55 1.55 2.41 3.62 2.41 5.82 0 4.54-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.13-1.47-.72-1.7-.8-.23-.08-.4-.13-.57.13-.17.25-.66.8-1.1 1.01-.14.12-.29.14-.54.02-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.38-1.73-.14-.25-.02-.38.11-.51.11-.11.25-.29.38-.43.13-.14.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.38-.78-1.89-.2-.49-.4-.42-.57-.43l-.49-.01c-.17 0-.45.06-.68.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.02 2.61.12.17 1.77 2.7 4.29 3.78.6.26 1.07.42 1.44.54.61.19 1.16.16 1.6-.03.49-.22 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.3z"/>
+                </svg>
             </button>
         </form>
     </div>
@@ -57,17 +100,14 @@
         document.getElementById('whatsappForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Admin WhatsApp number (Pakistan code 92 ke sath, baghair + sign ke)
             const adminPhone = "923403535397"; 
 
-            // Form values get karna
             const fullName = document.getElementById('fullName').value;
             const email = document.getElementById('email').value;
             const whatsappNo = document.getElementById('whatsappNo').value;
             const education = document.getElementById('education').value;
             const city = document.getElementById('city').value;
 
-            // Required Message format
             let text = `I required to Join Course%0A%0A`;
             text += `*Full Name:* ${fullName}%0A`;
             text += `*Email:* ${email}%0A`;
@@ -75,13 +115,9 @@
             text += `*Education:* ${education}%0A`;
             text += `*City:* ${city}`;
             
-            // WhatsApp URL generate karna
             const whatsappUrl = `https://wa.me/${adminPhone}?text=${text}`;
-
-            // WhatsApp par redirect karna
             window.open(whatsappUrl, '_blank');
         });
     </script>
-
 </body>
 </html>
